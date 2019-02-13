@@ -62,7 +62,7 @@ func Config(ctx context.Context, str string, resolver remotes.Resolver, ingester
 		remotes.FetchHandler(ingester, fetcher),
 		childrenConfigHandler(ingester, platform),
 	}
-	if err := images.Dispatch(ctx, images.Handlers(handlers...), desc); err != nil {
+	if err := images.Dispatch(ctx, images.Handlers(handlers...), nil, desc); err != nil {
 		return "", nil, err
 	}
 	config, err := images.Config(ctx, ingester, desc, platform)

@@ -93,7 +93,7 @@ func (c *checker) init() {
 	for _, img := range imgs {
 		if err := images.Dispatch(context.TODO(), images.Handlers(layersHandler(c.opt.ContentStore, func(layers []specs.Descriptor) {
 			c.registerLayers(layers)
-		})), img.Target); err != nil {
+		})), nil, img.Target); err != nil {
 			return
 		}
 	}

@@ -16,7 +16,6 @@ import (
 	"sync"
 	"time"
 
-	"github.com/boltdb/bolt"
 	"github.com/containerd/containerd/mount"
 	"github.com/docker/docker/pkg/locker"
 	"github.com/moby/buildkit/cache"
@@ -36,6 +35,7 @@ import (
 	"github.com/opencontainers/runc/libcontainer/system"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
+	bolt "go.etcd.io/bbolt"
 )
 
 const execCacheType = "buildkit.exec.v0"
